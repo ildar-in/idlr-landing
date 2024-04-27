@@ -1,0 +1,16 @@
+body {
+    background-image: url("./files/images/background.png");
+}
+.paper {
+    border-image: url("./files/images/paper.png");
+    border-width: 32px;
+    border-image-slice: 31 fill;
+    border-style: solid;
+    border-image-repeat: round;
+}
+
+.emblem {
+    display: inline-block;
+    height: 62px;
+    width: 62px;
+}

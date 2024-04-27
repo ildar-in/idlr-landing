@@ -11,44 +11,52 @@
   </head>
   <body>
     <main>
-<div class="container">
-  <h1>Ildarin Diabloid Roguelike</h1>  
-  <p>Roguelike isometric 2D ARPG. Your hero receives a random set of abilities each level, and you collect your own unique combination throughout the game. The map is generated procedurally. Potions, armor and other items radically change the style of play. Mass, melee and ranged weapons change the style of combat. Opponents and players can deal damage to their own, use the strength of opponents against them, but try not to hurt yourself and your allies with your combat spells.</p>
+<div class="container paper">
 
+  <h2><img src="./files/images/emblem.png" class="emblem"></img>The Game</h2>
+  <h1>Ildarin Diabloid Roguelike</h1>  
+  <h5>Under development</h5>  
+
+  <p>Roguelike isometric 2D ARPG. Your hero receives a random set of abilities each level, and you collect your own unique combination throughout the game. The map is generated procedurally. Potions, armor and other items radically change the style of play. Mass, melee and ranged weapons change the style of combat. Opponents and players can deal damage to their own, use the strength of opponents against them, but try not to hurt yourself and your allies with your combat spells.</p>
   
-<div class="container" style="height:315px; width:560px;">
-  <div id="carouselExampleDark" class="carousel slide">
+  <a href="./play" target="_self"> <button type="button" class="btn btn-dark btn-lg"><img src="./files/images/html-5.png" class="emblem">Play online</button></a>
+
+  <!-- <div class="container"></div> -->
+  <h3>Preview</h3>
+  <div id="carouselExampleDark"  style="width:560px; height:315px;" class="carousel slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <!-- <img src="..." class="d-block w-100" alt="..."> -->
         <iframe width="560" height="315" src="https://www.youtube.com/embed/ACSBqFzuNbw?si=rgfVhzJMRk1vnJwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-     
       </div>
       <div class="carousel-item" data-bs-interval="2000">
         <img src="./files/screenshots/screenshot001.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block" style="background-color: #00000099;">
           <h5>Battle</h5>
-          <!-- <p>Some representative placeholder content for the second slide.</p> -->
         </div>
       </div>
       <div class="carousel-item">
         <img src="./files/screenshots/screenshot002.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block" style="background-color: #00000099;">
           <h5>Arena</h5>
-          <!-- <p>Some representative placeholder content for the third slide.</p> -->
         </div>
       </div>
       <div class="carousel-item">
         <img src="./files/screenshots/screenshot003.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block" style="background-color: #00000099;">
-          <h5>Upgrade</h5>
-          <!-- <p>Some representative placeholder content for the 4 slide.</p> -->
+          <h5>Upgrades</h5>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./files/screenshots/screenshot004.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block" style="background-color: #00000099;">
+          <h5>Inventory</h5>
         </div>
       </div>
     </div>
@@ -63,7 +71,45 @@
   </div>
 </div>
 
+<div class="container paper">
+  <h4>Developer log</h4>
+  <p>Current version: 0.1.0-alpha</p>
+  <p>In next version planned:</p>
+  <ul>
+    <li>UI scale adaptive:</li>
+    <ul>
+      <li>Treasure screen</li>
+      <li>Inventory screen</li>
+    </ul>
+    <li>Bugfixes</li>
+    <li>...?</li>
+  </ul>
+  <p>Future versions:</p>
+  <ul>
+    <li>Enviroment map objects: traps, destructables</li>
+    <li>More levels</li>
+    <li>More abilities</li>
+    <li>Ability combinations</li>
+    <li>New types of enemies</li>
+    <li>Dungeon saturation, treasures and trades max count</li>
+    <li>Scale Boss power by floor level</li>
+    <li>UI</li>
+    <ul> 
+      <li>Controll type: WASD + mouse</li>
+      <li>Inventory UI impromevent: item replaces, right click transfering</li>
+      <li>Characters Y sortLayer</li>
+      <li>Language translates</li>
+      <li>Audio left right channel, distance</li>
+      <li>Enemy circle hp bar</li>
+      <li>Change hero icon in selector</li>
+      <li>Top speedruners table?</li>
+    </ul>
+  <li>...?</li>
+  </ul>
+
 </div>
+
+
     </main>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="index.js"></script>

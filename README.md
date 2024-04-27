@@ -1,0 +1,2 @@
+# Ildarin Diabloid Roguelike
+Roguelike isometric 2D ARPG. Your hero receives a random set of abilities each level, and you collect your own unique combination throughout the game. The map is generated procedurally. Potions, armor and other items radically change the style of play. Mass, melee and ranged weapons change the style of combat. Opponents and players can deal damage to their own, use the strength of opponents against them, but try not to hurt yourself and your allies with your combat spells.

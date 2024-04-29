@@ -1,0 +1,103 @@
+<head>
+    <title>Admin panel</title>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+</head>
+<body>
+
+    <input id="email" type="email" />
+    <input id="password" type="password" />
+    <input id="login" type="button" value="login" />
+
+    <div id="data"></div>
+
+</body>
+<script>
+
+init()
+
+async function init(){
+
+    const loginButton = document.getElementById('login')
+    loginButton.addEventListener('click',async e=>{
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+        const promiseAuth = account.createEmailSession(email, password)
+        promiseAuth.then(async function (response) {
+            console.log(response) // Success
+            console.log(docs)
+        }, function (error) {
+            console.log(error) // Failure
+        })
+    })
+
+    const { Client, Account, ID, Databases, Query } = Appwrite;
+    const client = new Client()
+        .setEndpoint("https://cloud.appwrite.io/v1")
+        .setProject("64fec2f077d94dde0a85")
+
+    const databases = new Databases(client)
+    const account = new Account(client)
+
+    const session = await account.get()
+
+    const dataDiv = document.getElementById('data')
+    dataDiv.innerText='loading...'
+    var docs = await getData()
+    dataDiv.innerText=''
+
+    const versionsMap = new Map()
+    const rows = []
+    for(let d of docs){
+        /** @type {Map} */
+        let usersMap = versionsMap.has(d['BuildInfo'])?versionsMap.get(d['BuildInfo']):new Map()
+        versionsMap.set(d['BuildInfo'], usersMap)
+        usersMap.set(d['UserId'], new Date(d['$createdAt']))
+
+        const rowDiv = document.createElement('div')
+        rowDiv.innerText = d['UserId']+'\n'+new Date(d['$createdAt']) +'\n'+  d['BuildInfo'].replace(/(?:\r\n|\r|\n)/g, ' | ')
+        rows.push(rowDiv)
+    }
+
+    const infoDiv = document.createElement('div')
+    dataDiv.appendChild(infoDiv)
+
+    for(let v of versionsMap.entries()){
+        const versionDiv = document.createElement('div')
+        infoDiv.appendChild(versionDiv)
+        versionDiv.innerText = 'version:' + (v[0]+'').replace(/(?:\r\n|\r|\n)/g, ' | ') + '\n'
+        versionDiv.innerText += v[1].size + '\n'
+        for(let v2 of v[1].entries()){
+            versionDiv.innerText += v2[0] + '; '
+        }
+        versionDiv.innerText += '\n'
+    }
+
+    const reversedRows = rows.reverse()
+    for(let r of reversedRows){
+        dataDiv.appendChild(r)
+    }
+
+    //------------------------------------------------------
+    async function getData(i=0, size=100){
+        const documents = []
+        let total = size+1
+        while(total>i){
+            let result = await databases.listDocuments(
+                "64fec34e9cfd3a086b78",
+                "662b232e6743aef9c9e7",
+                [
+                    Query.limit(size) ,
+                    Query.offset(i) 
+                ]
+            )
+            for(let doc of result.documents){
+                documents.push(doc)
+            }
+            total = result.total
+            i+=size
+        }
+        return documents
+    }
+}
+
+</script>

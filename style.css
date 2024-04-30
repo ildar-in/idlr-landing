@@ -14,3 +14,29 @@ body {
     height: 62px;
     width: 62px;
 }
+
+.html-play-button {
+    width: 100%;
+    border: 2px solid #000000;
+    animation-duration: 1s;
+    animation-name: borderping;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes borderping {
+    from {
+        margin-top: 10px;
+        border-color: #352200;
+    }
+    to {
+        margin-bottom: 10px;
+        border-color: #c72d2d;
+    }
+}
+
+.html-play-button-emblem{
+    width: 32px;
+    height: 32px;
+}
